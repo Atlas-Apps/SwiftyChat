@@ -22,13 +22,30 @@ internal struct ChatMessageCellContainer<Message: ChatMessage>: View {
     public let contactFooterSection: (ContactItem, Message) -> [ContactCellButton]
     public let onTextTappedCallback: () -> AttributedTextTappedCallback
     public let onCarouselItemAction: (CarouselItemButton, Message) -> Void
+
+    @ViewBuilder private func usernameHeader() -> some View {
+        Group {
+            if message.isSender {
+                HStack {
+                    Spacer()
+                    Text(message.user.userName)
+                        .fontWeight(usernameStyle.textStyle.fontWeight)
+                }
+            } else {
+                HStack {
+                    Text(message.user.userName)
+                        .fontWeight(usernameStyle.textStyle.fontWeight)
+                    Spacer()
+                }
+            }
+        }
+        .font(usernameStyle.textStyle.font)
+        .foregroundColor(usernameStyle.textStyle.textColor)
+    }
     
     @ViewBuilder private func messageCell() -> some View {
         if usernameStyle.showUsername {
-            Text(message.user.userName)
-                .fontWeight(usernameStyle.textStyle.fontWeight)
-                .font(usernameStyle.textStyle.font)
-                .foregroundColor(usernameStyle.textStyle.textColor)
+            usernameHeader()
         }
 
         switch message.messageKind {
