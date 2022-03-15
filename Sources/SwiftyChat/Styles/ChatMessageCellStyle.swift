@@ -15,6 +15,12 @@ public final class ChatMessageCellStyle: ObservableObject {
     
     /// Outgoing Text Style
     let outgoingTextStyle: TextCellStyle
+
+    /// Incoming Username Style
+    let incomingUsernameStyle: UsernameStyle
+
+    /// Outgoing Username Style
+    let outgoingUsernameStyle: UsernameStyle
     
     /// Cell container inset for incoming messages
     let incomingCellEdgeInsets: EdgeInsets
@@ -64,6 +70,22 @@ public final class ChatMessageCellStyle: ObservableObject {
                 fontWeight: .bold
             )
         ),
+        incomingUsernameStyle: UsernameStyle = UsernameStyle (
+            showUsername: false,
+            textStyle: CommonTextStyle(
+                textColor: .white,
+                font: .body,
+                fontWeight: .semibold
+            )
+        ),
+        outgoingUsernameStyle: UsernameStyle = UsernameStyle (
+            showUsername: true,
+            textStyle: CommonTextStyle(
+                textColor: .white,
+                font: .body,
+                fontWeight: .semibold
+            )
+        ),
         incomingCellEdgeInsets: EdgeInsets = EdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4),
         outgoingCellEdgeInsets: EdgeInsets = EdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4),
         contactCellStyle: ContactCellStyle = ContactCellStyle(),
@@ -80,6 +102,8 @@ public final class ChatMessageCellStyle: ObservableObject {
     ) {
         self.incomingTextStyle = incomingTextStyle
         self.outgoingTextStyle = outgoingTextStyle
+        self.incomingUsernameStyle = incomingUsernameStyle
+        self.outgoingUsernameStyle = outgoingUsernameStyle
         self.incomingCellEdgeInsets = incomingCellEdgeInsets
         self.outgoingCellEdgeInsets = outgoingCellEdgeInsets
         self.contactCellStyle = contactCellStyle

@@ -9,9 +9,14 @@
 import SwiftUI
 
 internal struct ChatMessageCellContainer<Message: ChatMessage>: View {
+    @EnvironmentObject var style: ChatMessageCellStyle
     
     public let message: Message
     public let size: CGSize
+
+    var usernameStyle: UsernameStyle {
+        message.isSender ? style.incomingUsernameStyle : style.outgoingUsernameStyle
+    }
     
     public let onQuickReplyItemSelected: (QuickReplyItem) -> Void
     public let contactFooterSection: (ContactItem, Message) -> [ContactCellButton]
@@ -19,8 +24,15 @@ internal struct ChatMessageCellContainer<Message: ChatMessage>: View {
     public let onCarouselItemAction: (CarouselItemButton, Message) -> Void
     
     @ViewBuilder private func messageCell() -> some View {
+        if usernameStyle.showUsername {
+            Text(message.user.userName)
+                .fontWeight(usernameStyle.textStyle.fontWeight)
+                .font(usernameStyle.textStyle.font)
+                .foregroundColor(usernameStyle.textStyle.textColor)
+        }
+
         switch message.messageKind {
-            
+
         case .text(let text):
             TextCell(
                 text: text,
