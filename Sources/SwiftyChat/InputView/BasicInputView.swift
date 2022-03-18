@@ -43,6 +43,7 @@ public struct BasicInputView: View {
         self.placeholder = placeholder
         self._isEditing = isEditing
         self._contentSizeThatFits = State(initialValue: .zero)
+        self.buttonColor = buttonColor
         self.onCommit = onCommit
     }
 
