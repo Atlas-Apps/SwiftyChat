@@ -71,7 +71,7 @@ public final class ChatMessageCellStyle: ObservableObject {
             )
         ),
         incomingUsernameStyle: UsernameStyle = UsernameStyle (
-            showUsername: false,
+            showUsername: true,
             textStyle: CommonTextStyle(
                 textColor: .white,
                 font: .body,
@@ -79,7 +79,7 @@ public final class ChatMessageCellStyle: ObservableObject {
             )
         ),
         outgoingUsernameStyle: UsernameStyle = UsernameStyle (
-            showUsername: true,
+            showUsername: false,
             textStyle: CommonTextStyle(
                 textColor: .white,
                 font: .body,

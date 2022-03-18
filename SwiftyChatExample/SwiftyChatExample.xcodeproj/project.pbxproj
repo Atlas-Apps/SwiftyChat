@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9360E6E527E1535200F0628A /* SwiftyChat in Frameworks */ = {isa = PBXBuildFile; productRef = 9360E6E427E1535200F0628A /* SwiftyChat */; };
 		F4D3ECCB253FFAE100226E0C /* BasicExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3ECC8253FFAE100226E0C /* BasicExampleView.swift */; };
 		F4D3ECCC253FFAE100226E0C /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3ECC9253FFAE100226E0C /* ChatListView.swift */; };
 		F4D3ECCD253FFAE100226E0C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3ECCA253FFAE100226E0C /* Extensions.swift */; };
@@ -16,7 +17,6 @@
 		F4D55CCC253F263000DA8FF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4D55CCB253F263000DA8FF0 /* Assets.xcassets */; };
 		F4D55CCF253F263000DA8FF0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4D55CCE253F263000DA8FF0 /* Preview Assets.xcassets */; };
 		F4D55CD2253F263000DA8FF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4D55CD0253F263000DA8FF0 /* LaunchScreen.storyboard */; };
-		F4D55D6D253F436400DA8FF0 /* SwiftyChat in Frameworks */ = {isa = PBXBuildFile; productRef = F4D55D6C253F436400DA8FF0 /* SwiftyChat */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4D55D6D253F436400DA8FF0 /* SwiftyChat in Frameworks */,
+				9360E6E527E1535200F0628A /* SwiftyChat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +103,7 @@
 			);
 			name = SwiftyChatExample;
 			packageProductDependencies = (
-				F4D55D6C253F436400DA8FF0 /* SwiftyChat */,
+				9360E6E427E1535200F0628A /* SwiftyChat */,
 			);
 			productName = SwiftyChatExample;
 			productReference = F4D55CC2253F262F00DA8FF0 /* SwiftyChatExample.app */;
@@ -133,7 +133,7 @@
 			);
 			mainGroup = F4D55CB9253F262F00DA8FF0;
 			packageReferences = (
-				F4D55D6B253F436400DA8FF0 /* XCRemoteSwiftPackageReference "SwiftyChat" */,
+				9360E6E327E1535200F0628A /* XCRemoteSwiftPackageReference "SwiftyChat" */,
 			);
 			productRefGroup = F4D55CC3253F262F00DA8FF0 /* Products */;
 			projectDirPath = "";
@@ -369,20 +369,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F4D55D6B253F436400DA8FF0 /* XCRemoteSwiftPackageReference "SwiftyChat" */ = {
+		9360E6E327E1535200F0628A /* XCRemoteSwiftPackageReference "SwiftyChat" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/EnesKaraosman/SwiftyChat.git";
+			repositoryURL = "https://github.com/Atlas-Apps/SwiftyChat";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F4D55D6C253F436400DA8FF0 /* SwiftyChat */ = {
+		9360E6E427E1535200F0628A /* SwiftyChat */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F4D55D6B253F436400DA8FF0 /* XCRemoteSwiftPackageReference "SwiftyChat" */;
+			package = 9360E6E327E1535200F0628A /* XCRemoteSwiftPackageReference "SwiftyChat" */;
 			productName = SwiftyChat;
 		};
 /* End XCSwiftPackageProductDependency section */

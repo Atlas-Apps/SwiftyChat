@@ -106,6 +106,7 @@ public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
     private func chatMessageCellContainer(in size: CGSize, with message: Message) -> some View {
         ChatMessageCellContainer(
             message: message,
+            isSameUser: isSameUser(messages: messages, thisMessage: message),
             size: size,
             onQuickReplyItemSelected: onQuickReplyItemSelected,
             contactFooterSection: contactCellFooterSection,
@@ -138,6 +139,21 @@ public extension ChatView {
             return timeInterval > dateHeaderTimeInterval
         }
         
+    }
+
+    func isSameUser(messages: [Message], thisMessage: Message) -> Bool {
+        guard let messageIndex = messages.firstIndex(where: { $0.id == thisMessage.id }) else {
+            return true
+        }
+
+        guard messageIndex != messages.indices.first else {
+            return true
+        }
+
+        let prevMessage = messages[messageIndex - 1]
+        let currMessage = messages[messageIndex]
+
+        return prevMessage.user != currMessage.user
     }
 }
 

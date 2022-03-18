@@ -12,7 +12,7 @@ public struct BasicInputView: View {
     @Binding private var message: String
     @Binding private var isEditing: Bool
     private let placeholder: String
-
+    private let buttonColor: Color
     @State private var contentSizeThatFits: CGSize = .zero
 
     private var internalAttributedMessage: Binding<NSAttributedString> {
@@ -36,12 +36,14 @@ public struct BasicInputView: View {
         message: Binding<String>,
         isEditing: Binding<Bool>,
         placeholder: String = "",
+        buttonColor: Color = Color(.systemBlue),
         onCommit: @escaping (ChatMessageKind) -> Void
     ) {
         self._message = message
         self.placeholder = placeholder
         self._isEditing = isEditing
         self._contentSizeThatFits = State(initialValue: .zero)
+        self.buttonColor = buttonColor
         self.onCommit = onCommit
     }
 
@@ -69,7 +71,7 @@ public struct BasicInputView: View {
             self.onCommit?(.text(message))
             self.message.removeAll()
         }, label: {
-            Circle().fill(Color(.systemBlue))
+            Circle().fill(buttonColor)
                 .frame(width: 36, height: 36)
                 .overlay(
                     Image(systemName: "paperplane.fill")
