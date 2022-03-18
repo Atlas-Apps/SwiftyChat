@@ -52,7 +52,6 @@ public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
         }
         .environmentObject(DeviceOrientationInfo())
         .environmentObject(VideoManager<Message>())
-        .edgesIgnoringSafeArea(.bottom)
         .iOS { $0.dismissKeyboardOnTappingOutside() }
     }
     
