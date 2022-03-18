@@ -44,7 +44,7 @@ public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
                         contentSizeThatFits = $0
                     }
                     .frame(height: messageEditorHeight)
-                    .padding(.bottom, 12)
+                    .padding(.bottom, 32)
                 
                 PIPVideoCell<Message>()
             }
@@ -52,6 +52,7 @@ public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
         }
         .environmentObject(DeviceOrientationInfo())
         .environmentObject(VideoManager<Message>())
+        .edgesIgnoringSafeArea(.bottom)
         .iOS { $0.dismissKeyboardOnTappingOutside() }
     }
     
