@@ -24,23 +24,10 @@ internal struct ChatMessageCellContainer<Message: ChatMessage>: View {
     public let onCarouselItemAction: (CarouselItemButton, Message) -> Void
 
     @ViewBuilder private func usernameHeader() -> some View {
-        Group {
-            if message.isSender {
-                HStack {
-                    Spacer()
-                    Text(message.user.userName)
-                        .fontWeight(usernameStyle.textStyle.fontWeight)
-                }
-            } else {
-                HStack {
-                    Text(message.user.userName)
-                        .fontWeight(usernameStyle.textStyle.fontWeight)
-                    Spacer()
-                }
-            }
-        }
-        .font(usernameStyle.textStyle.font)
-        .foregroundColor(usernameStyle.textStyle.textColor)
+        Text(message.user.userName)
+            .fontWeight(usernameStyle.textStyle.fontWeight)
+            .font(usernameStyle.textStyle.font)
+            .foregroundColor(usernameStyle.textStyle.textColor)
     }
     
     @ViewBuilder private func messageCell() -> some View {
