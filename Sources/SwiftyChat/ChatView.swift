@@ -44,7 +44,7 @@ public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
                         contentSizeThatFits = $0
                     }
                     .frame(height: messageEditorHeight)
-                    .padding(.bottom, 32)
+                    .padding(.bottom, 12)
                 
                 PIPVideoCell<Message>()
             }
@@ -106,7 +106,7 @@ public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
     private func chatMessageCellContainer(in size: CGSize, with message: Message) -> some View {
         ChatMessageCellContainer(
             message: message,
-            isSameUser: isSameUser(messages: messages, thisMessage: message),
+            showUsername: isSameUser(messages: messages, thisMessage: message),
             size: size,
             onQuickReplyItemSelected: onQuickReplyItemSelected,
             contactFooterSection: contactCellFooterSection,
