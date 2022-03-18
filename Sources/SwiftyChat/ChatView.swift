@@ -106,7 +106,7 @@ public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
     private func chatMessageCellContainer(in size: CGSize, with message: Message) -> some View {
         ChatMessageCellContainer(
             message: message,
-            showUsername: isSameUser(messages: messages, thisMessage: message),
+            isSameUser: isSameUser(messages: messages, thisMessage: message),
             size: size,
             onQuickReplyItemSelected: onQuickReplyItemSelected,
             contactFooterSection: contactCellFooterSection,
