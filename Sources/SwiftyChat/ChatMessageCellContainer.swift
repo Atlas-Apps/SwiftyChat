@@ -8,24 +8,25 @@
 
 import SwiftUI
 
-internal struct ChatMessageCellContainer<Message: ChatMessage>: View {
+struct ChatMessageCellContainer<Message: ChatMessage>: View {
     @EnvironmentObject var style: ChatMessageCellStyle
     
-    public let message: Message
-    public let size: CGSize
+    let message: Message
+    let isSameUser: Bool
+    let size: CGSize
 
     var usernameStyle: UsernameStyle {
-        message.isSender ? style.incomingUsernameStyle : style.outgoingUsernameStyle
+        message.isSender ? style.outgoingUsernameStyle : style.incomingUsernameStyle
     }
     
-    public let onQuickReplyItemSelected: (QuickReplyItem) -> Void
-    public let contactFooterSection: (ContactItem, Message) -> [ContactCellButton]
-    public let onTextTappedCallback: () -> AttributedTextTappedCallback
-    public let onCarouselItemAction: (CarouselItemButton, Message) -> Void
+    let onQuickReplyItemSelected: (QuickReplyItem) -> Void
+    let contactFooterSection: (ContactItem, Message) -> [ContactCellButton]
+    let onTextTappedCallback: () -> AttributedTextTappedCallback
+    let onCarouselItemAction: (CarouselItemButton, Message) -> Void
     
     @ViewBuilder private func messageCell() -> some View {
         VStack(alignment: message.isSender ? .trailing : .leading) {
-            if usernameStyle.showUsername {
+            if isSameUser && usernameStyle.showUsername {
                 Text(message.user.userName)
                     .fontWeight(usernameStyle.textStyle.fontWeight)
                     .font(usernameStyle.textStyle.font)
@@ -99,7 +100,7 @@ internal struct ChatMessageCellContainer<Message: ChatMessage>: View {
         }
     }
     
-    public var body: some View {
+    var body: some View {
         messageCell()
     }
     
