@@ -178,7 +178,7 @@ public extension ChatView {
     init(
         messages: Binding<[Message]>,
         scrollToBottom: Binding<Bool> = .constant(false),
-        inputView: @escaping () -> AnyView,
+        inputView: @escaping () -> InputView,
         inset: EdgeInsets = .init(),
         dateHeaderTimeInterval: Double = 3600.0
     ) {
