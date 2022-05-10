@@ -9,10 +9,10 @@
 import SwiftUI
 import SwiftUIEKtensions
 
-public struct ChatView<Message: ChatMessage, User: ChatUser>: View {
+public struct ChatView<Message: ChatMessage, User: ChatUser, InputView: View>: View {
     
     @Binding private var messages: [Message]
-    private var inputView: () -> AnyView
+    private var inputView: () -> InputView
 
     private var onMessageCellTapped: (Message) -> Void = { msg in print(msg.messageKind) }
     private var messageCellContextMenu: (Message) -> AnyView = { _ in EmptyView().embedInAnyView() }
